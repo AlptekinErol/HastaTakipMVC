@@ -1,0 +1,78 @@
+﻿@using EntityLayer.Concrete
+@model dynamic
+
+
+
+@{
+    Layout = null;
+}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="~/Content/tasarim.css"/>
+<table class="table table-bordered">
+    <tr>
+        <th>Customer Name</th>
+        <th>Customer Surname</th>
+        <th>Customer TC</th>
+        <th>Date of Sign</th>
+    </tr>
+    @foreach (Customer customer in Model.value)
+    {
+        <tr>
+            <td>@customer.CustomerName</td>
+            <td>@customer.CustomerSurname</td>
+            <td>@customer.CustomerTC</td>
+            <td>@customer.SignDate</td>
+            <td><button id="myBtn" class="btn-info">Mevcut Raporu Görüntüle</button></td>
+
+        </tr>
+
+    }
+
+
+
+</table>
+
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <table class="table table-bordered">
+            @foreach (CustomerReport report in Model.value2)
+            {
+            <tr>
+                <td>@report.Complain</td>
+                <td>@report.Comment</td>
+                <td>@report.SignDate</td>
+            </tr>
+            }
+        </table>
+       
+    </div>
+</div>
+
+<script>
+    // Popup Al
+    var modal = document.getElementById('myModal');
+
+    // Kipi açan düğmeyi al
+    var btn = document.getElementById("myBtn");
+
+    // Kipi kapatan <span> öğesini edinin
+    var span = document.getElementsByClassName("close")[0];
+
+    // Kullanıcı düğmeyi tıklattığında
+    btn.onclick = function () {
+        modal.style.display = "block";
+    }
+
+    // Kullanıcı <span> (x) düğmesini tıkladığında, popup
+    span.onclick = function () {
+        modal.style.display = "none";
+    }
+
+    // Kullanıcı modelden başka herhangi bir yeri tıklattıysa, onu kapatın.
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>

@@ -1,0 +1,32 @@
+﻿@using EntityLayer.Concrete
+@model List<Customer>
+
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+</head>
+<body>
+    <div>
+        <form action="/Login/Login" method="post">
+            <input type="text" name="email" value="E Posta" />
+            <input type="password" name="password" value="Şifre" />
+            <output type="id" name="id" visibility="false"></output>
+            <button type="submit">Giriş Yap</button>
+            <h1>@ViewData["Message"]</h1>
+        </form>
+        <table class="table table-bordered">
+
+        </table>
+       
+
+    </div>
+</body>
+</html>

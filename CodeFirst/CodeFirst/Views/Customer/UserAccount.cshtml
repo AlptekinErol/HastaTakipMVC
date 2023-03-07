@@ -1,0 +1,38 @@
+﻿@using EntityLayer.Concrete
+@model dynamic
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>UserAccount</title>
+</head>
+<body>
+    <input type="text" name="genre" value="@Request.Form["Complain"]" />
+    @foreach (CustomerReport repo in Model.value)
+    {
+        <h1> Hoş Geldin @repo.Customer.CustomerName</h1>
+        <div>
+            <table class="table table-bordered">
+
+
+
+                <tr>
+
+                    <td>@repo.ReportStatus</td>
+                    <td>@repo.Complain</td>
+                    <td>@repo.Comment</td>
+                </tr>
+
+
+            </table>
+
+
+        </div>
+    }
+</body>
+
+</html>

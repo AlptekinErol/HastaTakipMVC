@@ -1,0 +1,19 @@
+﻿@using EntityLayer.Concrete
+@model dynamic
+@{
+    Layout = null;
+}
+<table class="table table-bordered">
+    <tr>
+        <th>doktor adı</th>
+        <th>doktor soyadı</th>
+    </tr>
+   
+    @foreach (EntityLayer.Doctor doctor in Model.doktorVeri)
+    {
+        <tr>
+            <td>@doctor.DoctorName</td>
+            <td>@doctor.Branch.BranchName</td>
+        </tr>
+    }
+</table>
